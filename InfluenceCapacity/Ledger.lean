@@ -1760,7 +1760,7 @@ def gap_rem_inhibitory_hawkes_specific_kernel : LedgerEntry := {
  explicitly. -/
 def gap_rem_ig_first_passage_mle : LedgerEntry := {
   identifier := "rem:ig-first-passage-mle"
-  paperLabel := "rem:ig-first-passage-mle"
+  paperLabel := "rem:ig-first-passage-mle + lem:ig-mle-identification (formal lemma in §sec:cardinal-vindication formalizing the IG-MLE identification + bias-variance content)"
   status := GapStatus.gapOpen
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.phenomenologicalConjecture
