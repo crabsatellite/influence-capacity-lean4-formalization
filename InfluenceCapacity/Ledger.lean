@@ -21,8 +21,11 @@ and must be flagged.
  * 5 conditional hypotheses (slow-driver-regime, special-rank-1
  fungibility, ex-ante regime-assignment protocol, small-share Tullock
  asymptotic, time-invariant cross-couplings) — all `gapOpen`.
- * 43 paper theorems / propositions / corollaries / definitions
- `gapClosed` in Lean. Every invoked axiom belongs to exactly one of:
+ * Paper theorems / propositions / corollaries / definitions encoded as
+ `gapClosed` in Lean (current live count via `#eval countByStatus
+ GapStatus.gapClosed`; not pinned to a static number to avoid drift —
+ the authoritative count is the `#eval` result, not this prose). Every
+ invoked axiom belongs to exactly one of:
  (a) classical-literature theorem — Aczel, Lyapunov indirect method,
  Routh-Hurwitz, Cox-Lewis, Topkis, Cover-Thomas independence-
  decomposition, Tikhonov-Fenichel, Tullock CSF boundary behavior;
@@ -1763,7 +1766,7 @@ def gap_rem_ig_first_passage_mle : LedgerEntry := {
   paperLabel := "rem:ig-first-passage-mle + lem:ig-mle-identification (formal lemma in §sec:cardinal-vindication formalizing the IG-MLE identification + bias-variance content)"
   status := GapStatus.gapOpen
   inputCategory := InputCategory.cat3PaperNovel
-  cat3SubType := Cat3SubType.phenomenologicalConjecture
+  cat3SubType := Cat3SubType.workingAssumption
   closureDistance := "POSITIVE FINDING (gap patch). Inverse-Gaussian first-passage max-order-statistic likelihood replaces the degenerate max_k aggregator of `rem:model-extension-combined-joint-fit`, structurally curing the information-erasure pathology. Cite chain: Schrödinger 1915 (Phys. Z. 16, IG density), Tweedie 1957 (Annals Math. Stat. 28, IG named distribution + properties), Borodin-Salminen 2002 (handbook Ch. II.1, univariate reference). Iyengar 1985 (SIAM J. Appl. Math. 45:983-989) treats BIVARIATE Brownian first-passage only — cited as the right joint-structure reference if cross-coupling α_km ≠ 0 is needed; current calibration assumes axis-independence at the first-passage level. Each axis k has log-capability drift to log threshold; T_k ~ IG(μ_k, λ) with μ_k = log(θ̄) / (γ_k · δ_k). Likelihood for scalar t_i = max(T_PI, T_MU, T_NU): L_i(γ; λ) = Σ_k [f_k(t_i; μ_k, λ) · Π_{j≠k} F_j(t_i; μ_j, λ)]. Gradient ∂L_i/∂γ_k is non-zero on EVERY axis via the Π F_j factor, curing the max_k information erasure. Script `ig_first_passage_mle.py`, n=6 industrial cases (Spain 45, Netherlands 115, Britain 84, Qing 75, Ottoman 147, Roman 196 yr): γ̂ = (0.707, 0.037, 0.256), λ̂ = 422.5, L² to (0.40, 0.21, 0.39) = 0.3774 — BEATS max_k baseline 0.479 and joint-fit 0.652 (IG-MLE 4 free params vs 's 9). Hessian eigvals (0, 2.74, 5.77, 6506); identifiable up to simplex. Synthetic n=100 L² = 0.058 (consistent). Reproducible 30-rep bias/variance harness (seeds 1000-1029, Wald sampler, in committed script): mean γ̂ = (0.397, 0.260, 0.342), bias = (-0.003, +0.050, -0.048), ||bias|| = 0.069, SD (0.083, 0.095, 0.066), median L² = 0.090, 70% clear L²≤0.15. Mild finite-sample bias in MU/NU exchange; NOT unbiased at n=6, but identifiable + non-degenerate. HOLE-1 PARTIAL RESOLUTION: γ̂ L² to survival-weight prediction w = (0.64, 0.18, 0.19) is 0.169 vs empirical L² to w of 0.318 — IG-MLE closer to structural prediction. Real-data γ̂_PI = 0.71 sits ~3.7 SD above synthetic mean under truth (0.40, 0.21, 0.39), so under IG spec either (a) true γ_PI > headline, or (b) IG mis-specified (e.g. cross-coupling); n > 6 needed to discriminate."
   decomposability := "3 verified sub-claims: (a) gradient non-degeneracy (analytic, via Π F_j factor); (b) consistency (synthetic n=100 L² = 0.058); (c) identifiability (Hessian eigenvalues positive up to simplex). 2 Lean theorems: paperIGFirstPassage_beats_max_k_baseline (headline L² inequality) + paperIGFirstPassage_closer_to_survival_weight (gap side-benefit)."
   computability := "ARITHMETIC: Schrödinger/Tweedie IG closed-form density + CDF; scipy Nelder-Mead MLE on neg-log-likelihood; numerical Hessian + eigenvalues via finite differences."
@@ -2054,7 +2057,7 @@ def gap_axiom_R35_cardinal_identification : LedgerEntry := {
   paperLabel := "prop:identification-chain (formal proposition in §sec:cardinal-vindication; composes thm:exponent-derivation + def:coupled-dynamics to derive γ_m = δ_m⁻¹·|α_km|/L_k·r_m)"
   status := GapStatus.gapPartial
   inputCategory := InputCategory.cat3PaperNovel
-  cat3SubType := Cat3SubType.structuralDefiningEquation
+  cat3SubType := Cat3SubType.workingAssumption
   closureDistance := "POSITIVE THEORY OPTIMIZATION. Composes existing paper relations: (1) thm:exponent-derivation γ_k = w_k = δ_k⁻¹|∂W/∂x_k|r_k; (2) def:coupled-dynamics α_km = L_k · ∂W/∂x_m. Combining: |∂W/∂x_m| = |α_km|/L_k for any k≠m, so γ_m = δ_m⁻¹·|α_km|/L_k·r_m is IDENTIFIED from observable cross-coupling α_km + decay δ_m + leakage L_k + Tullock r_m. Resolves gap (Tullock-vs-calibration identification gap) at theory level — the cardinal calibration is no longer 'illustrative parameterization' but a falsifiable structural prediction testable against real-data α estimation. caveat: at n=6 found ||α||=0.0018 negligible; real-data extension to n>20 needed for empirical verification."
   decomposability := "Single identification chain (composition of 2 existing paper relations into a structural prediction)."
   computability := "ARITHMETIC given α_km estimation (VAR pooled OLS) + δ + L + r_m primitives. task: estimate α from real-data G20 panel."
