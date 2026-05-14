@@ -2051,7 +2051,7 @@ def gap_axiom_IGCDF : LedgerEntry := {
  theory_level` Cat 1 closure theorem. -/
 def gap_axiom_R35_cardinal_identification : LedgerEntry := {
   identifier := "axiom:-cardinal-identification-via-cross-coupling"
-  paperLabel := "thm:exponent-derivation + def:coupled-dynamics (composition: γ_m = δ_m⁻¹·|α_km|/L_k·r_m)"
+  paperLabel := "prop:identification-chain (formal proposition in §sec:cardinal-vindication; composes thm:exponent-derivation + def:coupled-dynamics to derive γ_m = δ_m⁻¹·|α_km|/L_k·r_m)"
   status := GapStatus.gapPartial
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.structuralDefiningEquation
@@ -2527,11 +2527,11 @@ def gap_axiom_paper_prop_taylor_F : LedgerEntry := {
 /-- Forward-use cardinal ŵ = (0.640, 0.175, 0.185). -/
 def gap_axiom_forward_use_cardinal_w_hat : LedgerEntry := {
   identifier := "axiom:forward-use-cardinal-w-hat"
-  paperLabel := "rem:ig-first-passage-mle (empirical loop closure)"
+  paperLabel := "thm:pwt-loop-closure (formal theorem in §sec:cardinal-vindication)"
   status := GapStatus.gapOpen
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.structuralDefiningEquation
-  closureDistance := "R46 forward-use Cobb-Douglas cardinal ŵ = (0.640, 0.175, 0.185), derived from PWT 11.0 G15 1957-2019 cross-coupling extraction via the identification chain γ_m = δ_m^(-1) |α_km|/L_k r_m (paper Theorem thm:exponent-derivation + Definition def:coupled-dynamics composition). Empirically vindicated over historical headline (L² to data-derived γ̂_pred = 0.034 vs 0.321 for headline)."
+  closureDistance := "Forward-use Cobb-Douglas cardinal ŵ = (0.640, 0.175, 0.185), derived from PWT 11.0 G15 1957-2019 cross-coupling extraction via the identification chain γ_m = δ_m^(-1) |α_km|/L_k r_m (paper composition of thm:exponent-derivation + def:coupled-dynamics, now formalized as prop:identification-chain). Empirically vindicated over historical headline (L² to data-derived γ̂_pred = 0.034 vs 0.321 for headline). Paper v6 promoted this finding to its own formal theorem thm:pwt-loop-closure."
   decomposability := "1 atomic Cat 3 structural-eq (paper-novel cardinal empirically derived via identification chain)."
   computability := "PUBLISHED (R36 script r36_close_R34_R35_loop.py); 4/7 sensitivity-test specifications STRONG match (R38)."
   attackVector := "Cat 3 atom encoded as `forwardUseCardinal_w_hat` axiom in Types.lean. Forward-use recommendation per paper Conclusion v2 update + R46 (P4) coupled-ODE re-derivation (script r46_p4_under_w_hat.py): 2025 cross-section China/US ≈ 0.96, 2045 trajectory ≈ 1.04."
@@ -2542,11 +2542,11 @@ def gap_axiom_forward_use_cardinal_w_hat : LedgerEntry := {
 /-- ŵ-over-headline empirical-loop-closure verdict. -/
 def gap_axiom_w_hat_vindicated_over_headline : LedgerEntry := {
   identifier := "axiom:w-hat-vindicated-over-headline-at-PWT-G15"
-  paperLabel := "rem:ig-first-passage-mle empirical loop closure verdict (v4)"
+  paperLabel := "thm:pwt-loop-closure + prop:frequency-scope (formal theorem + proposition in §sec:cardinal-vindication)"
   status := GapStatus.gapOpen
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.workingAssumption
-  closureDistance := "v4 single-cardinal commitment: ŵ = (0.640, 0.175, 0.185) is the framework's forward cardinal per R36 PWT G15 1957-2019 empirical loop closure (L²=0.034 to data-derived γ̂_pred vs L²=0.321 for legacy headline). Maddison Project 1870-2018 (n=18, T=149) is a frequency-scope finding: pooled δ_PI = -0.002 reflects near-unit-root multi-decade behaviour (Cochrane 1988, Nelson 1982); survival-weight formula has explicit annual-frequency domain (δ > 0), restated in v4. R36 verdict is frequency-specific (annual-cyclical regime), not universal cross-horizon."
+  closureDistance := "ŵ = (0.640, 0.175, 0.185) is the framework's forward cardinal per PWT G15 1957-2019 empirical loop closure (L²=0.034 to data-derived γ̂_pred vs L²=0.321 for legacy headline). Paper formalizes this as thm:pwt-loop-closure. Maddison Project 1870-2018 (n=18, T=149) is a frequency-scope finding: pooled δ_PI = -0.002 reflects near-unit-root multi-decade behaviour (Cochrane 1988, Nelson 1982); paper formalizes this as prop:frequency-scope with explicit annual-frequency domain (δ > 0). The verdict is frequency-specific (annual-cyclical regime), not universal cross-horizon."
   decomposability := "Single-cardinal commitment. Frequency-scope qualifier added to Theorem thm:exponent-derivation."
   computability := "PUBLISHED (R36 + R38 + R46 Maddison scope finding)."
   attackVector := "Cat 3 working-assumption axiom `paper_w_hat_vindicated_over_headline_at_PWT_G15` in Types.lean. v4: single-cardinal commitment (dual-cardinal v2-v3 hedge withdrawn); Theorem thm:exponent-derivation has explicit annual-frequency scope."

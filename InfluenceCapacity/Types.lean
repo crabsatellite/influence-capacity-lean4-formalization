@@ -669,24 +669,27 @@ axiom paperCDExponents : CobbDouglasExponents
 /-- Forward-use Cobb-Douglas cardinal `(0.640, 0.175, 0.185)`
  derived from the PWT 11.0 G15 1957-2019 empirical loop closure via
  the identification chain `γ_m = δ_m^(-1) |α_{km}|/L_k r_m` (paper
- Remark `rem:ig-first-passage-mle`). Empirically vindicated over the
- historical headline (L² to data-derived γ̂ = 0.034 vs 0.321 for
- headline). Cat 3 sub-type: structural-eq (paper-novel cardinal
- empirically derived via identification chain).
+ Proposition `prop:identification-chain`). Empirically vindicated over
+ the historical headline (L² to data-derived γ̂ = 0.034 vs 0.321 for
+ headline), formalized as paper Theorem `thm:pwt-loop-closure`. Cat 3
+ sub-type: structural-eq (paper-novel cardinal empirically derived via
+ identification chain).
 
- v4 commitment: this is the paper's forward cardinal (single-cardinal
- commitment per v4; dual-cardinal hedge of v2-v3 withdrawn). The
- qualitative ordering γ_PI > γ_NU > γ_MU is preserved.
+ v6 commitment: this is the paper's forward cardinal (single-cardinal
+ commitment; dual-cardinal hedge withdrawn in v4). The qualitative
+ ordering γ_PI > γ_NU > γ_MU is preserved.
 
- Frequency scope (Maddison Project 1870-2018 finding): this cardinal
- applies at the annual-cyclical regime where δ_k > 0; the multi-decade
- unit-root limit (Maddison pooled δ_PI ≈ -0.002) is outside the domain
- of Theorem `thm:exponent-derivation`. -/
+ Frequency scope (paper Proposition `prop:frequency-scope`, Maddison
+ Project 1870-2018 finding): this cardinal applies at the annual-
+ cyclical regime where δ_k > 0; the multi-decade unit-root limit
+ (Maddison pooled δ_PI ≈ -0.002) is outside the domain of Theorem
+ `thm:exponent-derivation`. -/
 axiom forwardUseCardinal_w_hat : CobbDouglasExponents
 
 /-- The empirical-loop-closure verdict from PWT G15 panel vindicates
  `forwardUseCardinal_w_hat` over `paperCDExponents` at L² distance 0.034
- (vs 0.321 for headline). Cat 3 sub-type: working assumption (panel
+ (vs 0.321 for headline). Formalized as paper Theorem
+ `thm:pwt-loop-closure`. Cat 3 sub-type: working assumption (panel
  result encoded as predicate; close path is Maddison-Project longer-T
  re-extraction).
 
@@ -2288,13 +2291,15 @@ axiom paperMultiAxisCrossing_escapes_corner_pull :
 
     a < (95 / 100 : ℝ) ∧ b < (95 / 100 : ℝ) ∧ c < (95 / 100 : ℝ)
 
-/-- Paper-novel NEGATIVE finding: 2-state Hidden Markov hazard does NOT
+/-- Substantive NEGATIVE finding: 2-state Hidden Markov hazard does NOT
  accommodate `CV² < 1` (script `hmm_regime_switching_hazard.py`).
  Structural reason: a marginal mixture of exponentials always has
  `CV² ≥ 1` (over-dispersion w.r.t. exponential baseline). Recovery of
  empirical `CV² = 0.45` requires inhibitory Hawkes (Brémaud-Massoulié
  1996) with negative-mass kernel; 2-state HMM is ruled out as a
- `CV² < 1` alternative (paper Remark `rem:model-extension-hmm`). -/
+ `CV² < 1` alternative. (Paper Remark `rem:model-extension-hmm` was
+ removed in v6 successor-models restructure; finding retained as Lean
+ axiom + companion script.) -/
 axiom paperHMM_2state_does_not_accommodate_subPoisson :
   -- The 2-state HMM marginal CV² is bounded below by 1.
 
