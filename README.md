@@ -1,5 +1,12 @@
 # InfluenceCapacity Lean 4 Formalisation
 
+[![Lean](https://img.shields.io/badge/Lean-4.16.0-blue?logo=lean)](https://leanprover.github.io/)
+[![Mathlib](https://img.shields.io/badge/Mathlib-v4.16.0-green)](https://github.com/leanprover-community/mathlib4)
+[![Build](https://img.shields.io/badge/lake%20build-passing-brightgreen)](#build-instructions)
+[![Ledger](https://img.shields.io/badge/ledger-153%20entries-informational)](#ledger-state)
+[![Sorry-free](https://img.shields.io/badge/sorry-free-success)](#lean-kernel-scope)
+[![Paper](https://img.shields.io/badge/paper-SSRN%206716498-orange)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6716498)
+
 Companion Lean 4 / Mathlib formalisation to the paper:
 
 > Li, A. C. (2026). *Influence Capacity Beyond GDP: An Axiomatic Three-Axis
