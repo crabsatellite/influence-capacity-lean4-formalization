@@ -1595,7 +1595,12 @@ def gap_rem_model_extension_multi_axis : LedgerEntry := {
   obstacleCitation := none
 }
 
-/-- paper source: rem:model-extension-hmm; Lean:
+/-- Substantive finding originally published as paper Remark
+ `rem:model-extension-hmm`; that remark was REMOVED from paper in the
+ v6 successor-models restructure. The HMM-CV²>1 ruling-out finding is
+ retained here as a Lean axiom + companion script
+ `paper/hmm_regime_switching_hazard.py` per §11 (substantive content
+ stays even when paper restructures the prose surface). Lean axiom:
  `Types.paperHMM_2state_does_not_accommodate_subPoisson`. -/
 -- inputCat: Cat 2
 -- auditVerdict: CLEAN (10-pattern hostile audit)
@@ -1603,7 +1608,7 @@ def gap_rem_model_extension_multi_axis : LedgerEntry := {
 
 def gap_rem_model_extension_hmm : LedgerEntry := {
   identifier := "rem:model-extension-hmm"
-  paperLabel := "rem:model-extension-hmm"
+  paperLabel := "(removed from paper v6 successor-models restructure; finding retained in script hmm_regime_switching_hazard.py)"
   status := GapStatus.gapClosed
   inputCategory := InputCategory.cat2External
   closureDistance := "RULED OUT. 2-state Hidden Markov hazard fitted on post-1640 record (script `hmm_regime_switching_hazard.py`) gives implied CV² ≈ 1.08 > 1. Structural reason: marginal mixture of exponentials always has CV² ≥ 1 (over-dispersion w.r.t. exponential baseline). HMM is therefore RULED OUT as a CV² < 1 alternative. Inhibitory Hawkes (Brémaud-Massoulié 1996) remains the operative successor model for CV² < 1 accommodation."
@@ -1622,7 +1627,7 @@ def gap_rem_model_extension_hmm : LedgerEntry := {
 
 def gap_rem_model_extension_queue : LedgerEntry := {
   identifier := "rem:model-extension-queue"
-  paperLabel := "rem:model-extension-{multi-axis, hmm, state-dependent-decay, translog, two-timescale, combined-joint-fit, combined} (queued items now materialized as individual paper remarks)"
+  paperLabel := "rem:model-extension-{multi-axis, state-dependent-decay, translog, two-timescale, combined} (queued items materialized as individual paper remarks; hmm + combined-joint-fit subsequently removed in v6 successor-models restructure)"
   status := GapStatus.gapClosed
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.workingAssumption
@@ -1692,7 +1697,12 @@ def gap_rem_model_extension_two_timescale : LedgerEntry := {
   obstacleCitation := none
 }
 
-/-- paper source: rem:model-extension-combined-joint-fit; Lean:
+/-- Substantive finding originally published as paper Remark
+ `rem:model-extension-combined-joint-fit`; that remark was REMOVED from
+ paper in the v6 successor-models restructure. The combined-extension
+ negative-finding diagnosis (max_k aggregator non-identification) is
+ retained as a Lean theorem + companion script
+ `paper/combined_extension_joint_fit.py` per §11. Lean theorem:
  `Types.paperCombinedExtension_does_not_recover_empirical`. -/
 -- inputCat: Cat 3
 -- subType: working-assumption
@@ -1700,7 +1710,7 @@ def gap_rem_model_extension_two_timescale : LedgerEntry := {
 
 def gap_rem_model_extension_combined_joint_fit : LedgerEntry := {
   identifier := "rem:model-extension-combined-joint-fit"
-  paperLabel := "rem:model-extension-combined-joint-fit"
+  paperLabel := "(removed from paper v6 successor-models restructure; finding retained in script combined_extension_joint_fit.py)"
   status := GapStatus.gapPartial
   inputCategory := InputCategory.cat3PaperNovel
   cat3SubType := Cat3SubType.workingAssumption
