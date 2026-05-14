@@ -696,7 +696,19 @@ axiom forwardUseCardinal_w_hat : CobbDouglasExponents
  Statement: there exists a sample-based discriminator function
  (PWT-derived γ̂_pred) and an L² threshold (0.10) such that
  forwardUseCardinal_w_hat is within the threshold and paperCDExponents
- is not. -/
+ is not.
+
+ Scope note: the Lean signature below encodes a typed-bridge witness
+ (existence of threshold + carrier-level distinguishability of ŵ from
+ paperCDExponents). The paper's substantive quantitative content
+ (L²=0.034 to data-derived γ̂_pred; L²=0.321 headline-rejection bound;
+ prop:frequency-scope δ>0 annual-cyclical domain qualifier) is NOT
+ encoded at the surface signature level — these substantive bounds
+ live in the `closureDistance` Ledger field and the companion PWT
+ extraction script. Strengthening the type to carry the L² numerical
+ bounds + frequency-scope qualifier requires Mathlib L²-distance
+ machinery over the opaque `CobbDouglasExponents` carrier; queued
+ as future encoding refinement. -/
 axiom paper_w_hat_vindicated_over_headline_at_PWT_G15 :
   ∃ L2_threshold : ℝ, L2_threshold = (1 : ℝ) / 10 ∧
     -- ŵ within threshold to data-derived γ̂_pred
